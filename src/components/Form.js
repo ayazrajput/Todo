@@ -2,10 +2,10 @@
 import React, { useState } from "react";
 function Form(props) {
 
-    console.log(props, "props")
     const [name, setName] = useState("");
     function handleSubmit(e) {
         e.preventDefault();
+
         props.addTask(name);
         setName("");
     }

@@ -16,6 +16,7 @@ const FILTER_NAMES = Object.keys(FILTER_MAP);
 
 function App(props) {
   const [tasks, setTasks] = useState(props.tasks);
+
   const [filter, setFilter] = useState("All");
   const filterList = FILTER_NAMES.map((name) => (
     <FilterButton
@@ -43,7 +44,9 @@ function App(props) {
   function addTask(name) {
     const newTask = { id: `todo-${nanoid()}`, name, completed: false };
     setTasks([...tasks, newTask]);
+
   }
+
 
   function deleteTask(id) {
     const remainingTasks = tasks.filter((task) => id !== task.id);
@@ -75,6 +78,7 @@ function App(props) {
   }
   const tasksNoun = taskList.length !== 1 ? "tasks" : "task";
   const headingText = `${taskList.length} ${tasksNoun} remaining`;
+
   return (
     <div className="todoapp stack-large">
       <h2 id="list-heading">{headingText}</h2>
@@ -87,6 +91,7 @@ function App(props) {
         role="list"
         className="todo-list stack-large stack-exception"
         aria-labelledby="list-heading">
+
         {taskList}
       </ul>
     </div>
